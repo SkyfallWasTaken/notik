@@ -8,7 +8,7 @@
 	let popupSettings: PopupSettings = {
 		event: 'focus-click',
 		target: 'popupAutocomplete',
-		placement: 'bottom'
+		placement: 'bottom-start'
 	};
 
 	let availableSubjects: AutocompleteOption<string>[] = [
@@ -27,7 +27,7 @@
 </script>
 
 <div class="container mx-auto flex justify-center">
-	<div class="space-y-5 text-center flex flex-col">
+	<div class="space-y-5 text-center">
 		<div class="text-left space-y-2">
 			<h1 class="text-3xl font-semibold">Create new deck</h1>
 			<label for="deckName">
@@ -37,8 +37,8 @@
 					<input type="text" placeholder="e.g. 'German - Essen'" id="deckName" />
 				</div>
 			</label>
-			
-			<div data-popup="popupAutocomplete" class="card variant-ghost-primary">
+
+			<div class="card p-2 z-10" data-popup="popupAutocomplete">
 				<Autocomplete
 					bind:input={deckSubject}
 					options={availableSubjects}
@@ -51,11 +51,11 @@
 				<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
 					<div class="input-group-shim"><GraduationCap /></div>
 					<input
-						class="input autocomplete"
+						class="autocomplete"
 						type="search"
 						name="autocomplete-search"
 						bind:value={deckSubject}
-						placeholder="Search..."
+						placeholder="Search subjects..."
 						use:popup={popupSettings}
 					/>
 				</div>
