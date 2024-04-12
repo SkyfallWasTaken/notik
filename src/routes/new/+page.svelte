@@ -37,6 +37,14 @@
 					<input type="text" placeholder="e.g. 'German - Essen'" id="deckName" />
 				</div>
 			</label>
+			
+			<div data-popup="popupAutocomplete" class="card variant-ghost-primary">
+				<Autocomplete
+					bind:input={deckSubject}
+					options={availableSubjects}
+					on:selection={onSubjectSelect}
+				/>
+			</div>
 
 			<label for="deckSubject">
 				<span class="sr-only">Subject</span>
@@ -50,13 +58,6 @@
 						placeholder="Search..."
 						use:popup={popupSettings}
 					/>
-					<div data-popup="popupAutocomplete">
-						<Autocomplete
-							bind:input={deckSubject}
-							options={availableSubjects}
-							on:selection={onSubjectSelect}
-						/>
-					</div>
 				</div>
 			</label>
 		</div>
