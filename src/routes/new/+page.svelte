@@ -2,6 +2,7 @@
 	import { PencilLine, GraduationCap } from 'lucide-svelte';
 	import { Autocomplete, popup } from '@skeletonlabs/skeleton';
 	import type { PopupSettings, AutocompleteOption } from '@skeletonlabs/skeleton';
+	import getSubjects from '$lib/subjects';
 	import NewCard from '$lib/components/new/NewCard.svelte';
 
 	let deckSubject = '';
@@ -11,15 +12,7 @@
 		placement: 'bottom-start'
 	};
 
-	let availableSubjects: AutocompleteOption<string>[] = [
-		{
-			label: 'Computer Science',
-			value: 'computerscience',
-			keywords: 'cs, computing, programming, coding'
-		},
-		{ label: 'English', value: 'english', keywords: 'english, language, literature' },
-		{ label: 'Maths', value: 'maths', keywords: 'math, mathematics, algebra, geometry, calculus' }
-	];
+	let availableSubjects: AutocompleteOption<string>[] = getSubjects();
 
 	function onSubjectSelect(event: CustomEvent<AutocompleteOption<string>>) {
 		deckSubject = event.detail.value;
@@ -34,7 +27,7 @@
 				<span class="sr-only">Deck name</span>
 				<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
 					<div class="input-group-shim"><PencilLine /></div>
-					<input type="text" placeholder="e.g. 'German - Essen'" id="deckName" />
+					<input type="text" placeholder="e.g. 'Essen'" id="deckName" />
 				</div>
 			</label>
 
@@ -43,6 +36,8 @@
 					bind:input={deckSubject}
 					options={availableSubjects}
 					on:selection={onSubjectSelect}
+					regionEmpty="p-2"
+					emptyState="No results found."
 				/>
 			</div>
 
