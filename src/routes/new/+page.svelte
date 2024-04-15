@@ -4,6 +4,7 @@
 	import type { PopupSettings, AutocompleteOption } from '@skeletonlabs/skeleton';
 	import getSubjects from '$lib/subjects';
 	import NewCard from '$lib/components/new/NewCard.svelte';
+	import Editor from '$lib/components/Editor.svelte';
 
 	let deckSubject = '';
 	let popupSettings: PopupSettings = {
@@ -22,7 +23,7 @@
 <div class="container mx-auto flex justify-center">
 	<div class="space-y-5 text-center">
 		<div class="text-left space-y-2">
-			<h1 class="text-3xl font-semibold">Create new deck</h1>
+			<h1 class="text-3xl font-semibold pb-4">Create new deck</h1>
 			<label for="deckName">
 				<span class="sr-only">Deck name</span>
 				<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
@@ -58,6 +59,8 @@
 		</div>
 
 		<hr class="opacity-50" />
+
+		<Editor />
 
 		<NewCard />
 	</div>

@@ -1,4 +1,4 @@
-import type { AutocompleteOption } from "@skeletonlabs/skeleton";
+import type { AutocompleteOption } from '@skeletonlabs/skeleton';
 
 type Subject = {
 	name: string;
@@ -16,10 +16,10 @@ const subjects: Subject[] = [
 		name: 'Computer Science',
 		keywords: 'cs, computing, programming, coding'
 	},
-    {
-        name: "German",
-        keywords: "deutsch, germany, deutschland"
-    }
+	{
+		name: 'German',
+		keywords: 'deutsch, germany, deutschland'
+	}
 ];
 
 export default function getSubjects(): AutocompleteOption<string>[] {
@@ -29,6 +29,6 @@ export default function getSubjects(): AutocompleteOption<string>[] {
 			label: subject.name,
 			value: subject.name,
 			keywords: subject.keywords
-		}	
-	})
+		};
+	});
 }
