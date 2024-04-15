@@ -4,7 +4,7 @@
 	import StarterKit from '@tiptap/starter-kit';
 	import Typography from '@tiptap/extension-typography';
 	import Placeholder from '@tiptap/extension-placeholder';
-	import Document from '@tiptap/extension-document'
+	import Document from '@tiptap/extension-document';
 
 	let element: HTMLDivElement;
 	let editor: Editor;
